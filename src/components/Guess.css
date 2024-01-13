@@ -1,0 +1,71 @@
+/* Password container styles */
+.password-game-container {
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+  width: 50%;
+  margin-top: 50px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Input styles */
+.input {
+  height: 40px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  outline: none; /* Remove the input outline on focus */
+}
+
+/* Rules container styles */
+.rules-container {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Rule container styles */
+.rule-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  font-size: 18px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.rule-container:hover {
+  background-color: #f9f9f9; /* Change the background color on hover */
+  transform: scale(1.02); /* Slightly increase the size on hover */
+}
+
+/* Active rule container styles */
+.active-rule-container {
+  background-color: #daffda; /* Set background color for active rule container */
+}
+
+/* Active rule styles */
+.active-rule {
+  color: green;
+  font-weight: bold;
+}
+
+/* Inactive rule styles */
+.inactive-rule {
+  color: #555;
+}
+
+/* Win message styles */
+.win-message {
+  color: blue;
+  font-weight: bold;
+  margin-top: 20px;
+}
