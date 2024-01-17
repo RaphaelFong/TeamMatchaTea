@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Guess.css';
+import Options from './Options';
 
 const PasswordGame = () => {
+  const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [rules, setRules] = useState([
     'At least 5 characters in password',
@@ -19,7 +22,7 @@ const PasswordGame = () => {
 
     // Check if each rule is met
     setActiveRules(rules.map((rule, index) => checkRule(newPassword, index)));
-    
+
     // Check if all rules are met
     if (checkAllRules(newPassword)) {
       // Set game as won
@@ -52,42 +55,61 @@ const PasswordGame = () => {
         (pw) => pw.length >= 5,
         (pw) => /\d/.test(pw), // At least one digit
         (pw) => /[A-Z]/.test(pw), // At least one capital letter
-        (pw) => pw.includes('April'),
-        (pw) => pw.includes('88'), // Check "20" only if it's the active rule
+        (pw) => pw.includes('February'),
+        (pw) => pw.includes('20'), // Check "20" only if it's the active rule
       ];
-  
+
       return ruleCheckFunctions[ruleIndex](password);
     }
     return false; // No active rules, so return false
   };
-  
-  
+
   useEffect(() => {
     // Activate only the first rule on component mount
     setActiveRules([0]);
   }, []);
-  
+
+  const handleReturnToMainMenu = () => {
+    // Navigate back to the root ("/")
+    navigate('/');
+  };
+
+  const handleRetry = () => {
+    // You should implement the logic to reset the game state here
+    setTimeout(() => {
+      // Reset the game after a delay
+      setGameWon(false);
+      setActiveRules([]);
+      setPassword('');
+      setActiveRules([0]); // Reactivate all rules
+    }, 2000);
+  };
 
   return (
-    <div className="password-game-container">
-      <h3>Guess the password</h3>
-      <input
-        className='input'
-        value={password}
-        onChange={handlePasswordChange}
-        placeholder="Enter your password"
-        disabled={gameWon}
-      />
-      <div className="rules-container">
-        {rules.map((rule, index) => (
-          <div key={index} className={`rule-container ${activeRules[index] ? 'active-rule-container' : ''}`}>
-            <p key={index} className={activeRules[index] ? 'active-rule' : 'inactive-rule'}>
-              {rule}
-            </p>
-          </div>
-        ))}
+    <div className="main-container">
+      <div className="password-game-container">
+        <h3>Guess the password</h3>
+        <input
+          className="input"
+          value={password}
+          onChange={handlePasswordChange}
+          placeholder="Enter your password"
+          disabled={gameWon}
+        />
+        <div className="rules-container">
+          {rules.map((rule, index) => (
+            <div key={index} className={`rule-container ${activeRules[index] ? 'active-rule-container' : ''}`}>
+              <p key={index} className={activeRules[index] ? 'active-rule' : 'inactive-rule'}>
+                {rule}
+              </p>
+            </div>
+          ))}
+        </div>
+        {gameWon && <p className="win-message">Congratulations! You won the game!</p>}
       </div>
-      {gameWon && <p className="win-message">Congratulations! You won the game!</p>}
+      <div className="options-container">
+        <Options handleReturnToMainMenu={handleReturnToMainMenu} handleRetry={handleRetry} />
+      </div>
     </div>
   );
 };

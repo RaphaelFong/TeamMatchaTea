@@ -42,6 +42,17 @@
   transition: background-color 0.3s, transform 0.3s;
 }
 
+
+
+/*.rule-container:not(:first-child) {
+  display: none; 
+}
+
+.rule-container.active-rule-container {
+  display: block; 
+}
+*/
+
 .rule-container:hover {
   background-color: #f9f9f9; /* Change the background color on hover */
   transform: scale(1.02); /* Slightly increase the size on hover */
