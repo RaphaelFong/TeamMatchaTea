@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Guess.css';
 import Options from './Options';
+import { allRules } from './Rules.js';
 
 const PasswordGame = () => {
   const navigate = useNavigate();
+  //To change password
   const [password, setPassword] = useState('');
-  const [rules, setRules] = useState([
-    'At least 5 characters in password',
-    'There must be a digit in your password',
-    'There must be CAPITALISED in your password',
-    'The word "February" must be in your password',
-    'The number "20" must be in your password',
-  ]);
+  //To change rule message
+  const [rules, setRules] = useState([allRules[0].message]);
+  //To change rule conditions
+  const [rulesCheck, setRulesCheck] = useState([allRules[0].check]);
+  //To change rule number
+  const [ruleId, setRuleId] = useState(1);
   const [activeRules, setActiveRules] = useState([]);
   const [gameWon, setGameWon] = useState(false);
 
@@ -23,13 +24,22 @@ const PasswordGame = () => {
     // Check if each rule is met
     setActiveRules(rules.map((rule, index) => checkRule(newPassword, index)));
 
+    //Check if current rule is met. If it is, append next rule
+    if (checkAllRules(newPassword) && ruleId < allRules.length) {
+        setRuleId(prevRuleId => {return prevRuleId + 1});
+        setRules(prevRules => {return [...prevRules, allRules[ruleId].message]});
+        setRulesCheck(prevRulesCheck => {return [...prevRulesCheck, allRules[ruleId].check]});
+    }
     // Check if all rules are met
-    if (checkAllRules(newPassword)) {
+    if (checkAllRules(newPassword) && ruleId === allRules.length) {
       // Set game as won
       setGameWon(true);
       setTimeout(() => {
         // Reset the game after a delay
         setGameWon(false);
+        setRuleId(1);
+        setRules([allRules[0].message]);
+        setRulesCheck([allRules[0].check]);
         setActiveRules([]);
         setPassword('');
         setActiveRules([0]); // Reactivate all rules
@@ -38,28 +48,12 @@ const PasswordGame = () => {
   };
 
   const checkAllRules = (password) => {
-    const ruleCheckFunctions = [
-      (pw) => pw.length >= 5,
-      (pw) => /\d/.test(pw), // At least one digit
-      (pw) => /[A-Z]/.test(pw), // At least one capital letter
-      (pw) => pw.includes('February'),
-      (pw) => pw.includes('20'), // Check "20" only if it's the active rule
-    ];
-
-    return ruleCheckFunctions.every((ruleCheck) => ruleCheck(password));
+    return rulesCheck.every((ruleCheck) => ruleCheck(password));
   };
 
   const checkRule = (password, ruleIndex) => {
     if (activeRules.length === rules.length) {
-      const ruleCheckFunctions = [
-        (pw) => pw.length >= 5,
-        (pw) => /\d/.test(pw), // At least one digit
-        (pw) => /[A-Z]/.test(pw), // At least one capital letter
-        (pw) => pw.includes('February'),
-        (pw) => pw.includes('20'), // Check "20" only if it's the active rule
-      ];
-
-      return ruleCheckFunctions[ruleIndex](password);
+      return rulesCheck[ruleIndex](password);
     }
     return false; // No active rules, so return false
   };
@@ -79,6 +73,9 @@ const PasswordGame = () => {
     setTimeout(() => {
       // Reset the game after a delay
       setGameWon(false);
+      setRuleId(1);
+      setRules([allRules[0].message]);
+      setRulesCheck([allRules[0].check]);
       setActiveRules([]);
       setPassword('');
       setActiveRules([0]); // Reactivate all rules
