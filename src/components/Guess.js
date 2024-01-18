@@ -87,7 +87,7 @@ const PasswordGame = () => {
       <div className="password-game-container">
         <h3>Guess the password</h3>
         <input
-          className="input"
+          className = "default-input"
           value={password}
           onChange={handlePasswordChange}
           placeholder="Enter your password"
