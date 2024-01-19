@@ -27,8 +27,8 @@ const PasswordGame = () => {
     //Check if current rule is met. If it is, append next rule
     if (checkAllRules(newPassword) && ruleId < allRules.length) {
         setRuleId(prevRuleId => {return prevRuleId + 1});
-        setRules(prevRules => {return [...prevRules, allRules[ruleId].message]});
-        setRulesCheck(prevRulesCheck => {return [...prevRulesCheck, allRules[ruleId].check]});
+        setRules(prevRules => {return [allRules[ruleId].message, ...prevRules]});
+        setRulesCheck(prevRulesCheck => {return [allRules[ruleId].check , ...prevRulesCheck]});
     }
     // Check if all rules are met
     if (checkAllRules(newPassword) && ruleId === allRules.length) {
