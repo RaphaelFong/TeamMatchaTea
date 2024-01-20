@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/save-your-grades/static/css/main.30b00971.css",
+    "main.js": "/save-your-grades/static/js/main.d188e860.js",
+    "static/js/787.07171e82.chunk.js": "/save-your-grades/static/js/787.07171e82.chunk.js",
+    "index.html": "/save-your-grades/index.html",
+    "main.30b00971.css.map": "/save-your-grades/static/css/main.30b00971.css.map",
+    "main.d188e860.js.map": "/save-your-grades/static/js/main.d188e860.js.map",
+    "787.07171e82.chunk.js.map": "/save-your-grades/static/js/787.07171e82.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.30b00971.css",
+    "static/js/main.d188e860.js"
+  ]
+}
