@@ -34,5 +34,33 @@ body {
     background-color: #45a049; /* Darker green on hover */
   }
   
+  .rectangle {
+    width: 1000px;
+    height: 500px;
+    border: 2px solid black
+  }
+
+  .centered-header {
+    text-align: center;
+  }
+  
+  .popup{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .newline{
+    margin: '10px 0'
+  }
+
+
   /* Customize additional styles as needed for a kid-friendly and Singapore-themed design */
   
