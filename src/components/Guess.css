@@ -1,6 +1,4 @@
 /* Password container styles */
-
-
 .password-game-container {
   text-align: center;
   padding: 20px;
@@ -29,7 +27,6 @@
   margin-top: 10px;
   padding: 10px;
   border-radius: 10px;
-  background-color: #f4f4f4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
@@ -39,30 +36,17 @@
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 10px;
-  background-color: #fff;
   font-size: 18px;
   transition: background-color 0.3s, transform 0.3s;
-}
-
-
-
-/*.rule-container:not(:first-child) {
-  display: none; 
-}
-
-.rule-container.active-rule-container {
-  display: block; 
-}
-*/
-
-.rule-container:hover {
-  background-color: #f9f9f9; /* Change the background color on hover */
-  transform: scale(1.02); /* Slightly increase the size on hover */
 }
 
 /* Active rule container styles */
 .active-rule-container {
   background-color: #daffda; /* Set background color for active rule container */
+}
+
+.rule-container.inactive-rule-container {
+  background-color: #ffcccc; /* Set background color for inactive rule container */
 }
 
 /* Active rule styles */
@@ -76,9 +60,13 @@
   color: #555;
 }
 
+.rule-container:hover {
+  background-color: #f9f9f9; /* Change the background color on hover */
+  transform: scale(1.02); /* Slightly increase the size on hover */
+}
+
 /* Win message styles */
 .win-message {
   color: blue;
   font-weight: bold;
-  margin-top: 20px;
 }
