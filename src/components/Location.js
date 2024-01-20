@@ -1,7 +1,9 @@
+import { getRandom } from "./getRandom";
+
 const locationsArray = [
     {
-        link: "https://img.emg-services.net/institutes/institute40830/nus-banner-1.png ",
-        place: 'nus'
+        link: "https://a.cdn-hotels.com/gdcs/production38/d1169/a9c2bb3e-9a16-49ce-820e-dbe3b0e6f0a1.jpg ",
+        place: 'sunteccity'
      
     },
     {
@@ -18,16 +20,17 @@ const locationsArray = [
         link:  "https://i.pinimg.com/originals/39/c0/33/39c03391faf990d01af951d1baa24e19.jpg",
         place: 'chinatown'
      
+    },
+    {
+        link: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/297611078.jpg?k=e26cc333800386469e170cfec12cc5cc261812df76497422688608b41d30f7f3&o=&hp=1",
+        place: 'marinabaysands'
     }
    
 ];
 
-export const getRandomLocation = (locationArray) => {
-    const randomIndex = Math.floor(Math.random() * locationArray.length);
-    return locationArray[randomIndex];
-  };
 
-export const randomLocation = getRandomLocation(locationsArray);
+
+export const randomLocation = getRandom(locationsArray);
 
 
 

@@ -37,7 +37,20 @@ const PasswordGame = () => {
         setPassword('');
       }, 2000);
     }
+
   }, [password, ruleId]);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      // Clear the emoji from the password after the specified delay
+      setPassword((prevPassword) => prevPassword.replace('🍦', ''));
+    }, 10000);
+
+    // Cleanup the timeout to avoid memory leaks
+    return () => clearTimeout(timeoutId);
+  }, [password, 10000, '🍦']);
+
+  
 
   const handleReturnToMainMenu = () => {
     navigate('/');
