@@ -8,7 +8,7 @@ import userEvent from '@testing-library/user-event';
 
 const LandingPage = () => {
   
-  // Stuff for the inactive 10s
+  // Start - Stuff for the inactive 5s
   const [linkClicked, setLinkClicked] = useState(false);
 
   const showPopup = () => {
@@ -20,7 +20,7 @@ const LandingPage = () => {
     setLinkClicked(true);
   }
 
-  // Trigger popup if it has not been clicked for 10s
+  // Trigger popup if it has not been clicked for 5s
   useEffect(() => {
     const popupTimeout = setTimeout(() => {
       if (!linkClicked)
@@ -32,6 +32,18 @@ const LandingPage = () => {
     // Cleanup
     return () => clearTimeout(popupTimeout);
   }, [linkClicked]);
+  // End - Stuff for the inactive 5s
+
+
+  // Start - Stuff for the popup foreground
+
+  const [isInstructionVisible, setInstruction] = useState(false);
+  
+  const toggleInstruction = () => {
+    console.log('Toggle popup');
+    setInstruction(!isInstructionVisible);
+  };
+  // End - Stuff for the popup foreground
 
 
   // This is html stuff
@@ -39,9 +51,21 @@ const LandingPage = () => {
     <div className="landing-page-container">
 
       <div>
+      {/* Popup container */}
+      {(!isInstructionVisible &&
+        <div className="overlay">
+          <div className="popupInstruction">
+            <p>This is your popup content.</p>
+            <button className="close-btn" type="button" onClick={toggleInstruction}>Close</button>
+          </div>
+        </div>
+      )}
+      </div>
+
+      <div>
         <div className='rectangle'>
           <div className='centered-header'>
-            <h1>My University Education Portal</h1>
+            <h1>University Education Portal</h1>
 
             {/* 
             <div>
@@ -57,26 +81,30 @@ const LandingPage = () => {
             </div>
             */}
 
-            <div>
+            <div className='divPadding'>
               <form>
+                {/* 
                 <div>
                 <label for="username">Username:</label>
                 </div>
+                */}
 
                 <div>
-                <input type="text" id="username" name="username"></input>
+                <input className='inputField' type="text" id="username" name="username" placeholder="Username"></input>
                 </div>
 
+                {/* 
                 <div>
                 <label for="pwd">Password:</label>
                 </div>
+                */}
 
-                <div>
-                <input type="password" id="pwd" name="pwd"></input>
+                <div className='divPadding'>
+                <input className='inputField' type="password" id="pwd" name="pwd" placeholder="Password"></input>
                 </div>
 
                 <div>
-                <input type="submit" value="Submit"></input>
+                <input className='login' type="submit" value="Login"></input>
                 </div>
               </form>
             </div>
