@@ -49,81 +49,60 @@ const LandingPage = () => {
   // This is html stuff
   return (
     <div className="landing-page-container">
-
-      <div>
-      {/* Popup container */}
-      {(!isInstructionVisible &&
-        <div className="overlay">
-          <div className="popupInstruction">
-            <p>This is your popup content.</p>
-            <button className="close-btn" type="button" onClick={toggleInstruction}>Close</button>
-          </div>
-        </div>
-      )}
-      </div>
-
-      <div>
-        <div className='rectangle'>
-          <div className='centered-header'>
-            <h1>University Education Portal</h1>
-
-            {/* 
-            <div>
-            <Link to="/play">
-              <button>Play Game</button>
-            </Link>
-            </div>
-
-            <div>
-            <Link to="/configure">
-              <button>Configure Rules</button>
-            </Link>
-            </div>
-            */}
-
-            <div className='divPadding'>
-              <form>
-                {/* 
-                <div>
-                <label for="username">Username:</label>
-                </div>
-                */}
-
-                <div>
-                <input className='inputField' type="text" id="username" name="username" placeholder="Username"></input>
-                </div>
-
-                {/* 
-                <div>
-                <label for="pwd">Password:</label>
-                </div>
-                */}
-
-                <div className='divPadding'>
-                <input className='inputField' type="password" id="pwd" name="pwd" placeholder="Password"></input>
-                </div>
-
-                <div>
-                <input className='login' type="submit" value="Login"></input>
-                </div>
-              </form>
-            </div>
-
-            <div>
-            <Link to="/play" href="#" onClick={handleLinkClick} >
-              <p>Forgotten your password? Click here to reset</p>
-            </Link>
-            </div>
-
-            <div>
+      
+        <div>
+          <div className='rectangle'>
+            <div className='centered-header'>
+              
+              <div className='innerRect'>
+                <h1>University Education Portal</h1>
+              </div>
 
               
+
+              <div className='divPadding'>
+                <form>
+
+                  <div>
+                  <input className='inputField' type="text" id="username" name="username" placeholder="Username"></input>
+                  </div>
+
+                  <div className='divPadding'>
+                  <input className='inputField' type="password" id="pwd" name="pwd" placeholder="Password"></input>
+                  </div>
+
+                  <div>
+                  <input className='login' type="submit" value="Login"></input>
+                  </div>
+                </form>
+              </div>
+
+              <div>
+              <Link to="/play" href="#" onClick={handleLinkClick} >
+                <p>Forgotten password?</p>
+              </Link>
+              </div>
+
+              </div>
             </div>
-
-
+        </div>
+      
+        <div>
+        {/* Popup container with the backstory */}
+        {(!isInstructionVisible &&
+          <div className="overlay">
+            <div className="popupInstruction">
+              <p>You are a university student who is about to submit an assignment to the online school
+                portal. However, you forgot your login password. You clicked on the reset password and turns out
+                the IT team has an interesting way of resetting password.
+                But you got to hurry. Every minute passes the deadline (0000 hours), you get a letter grade down!
+              </p>
+              <button className="close-btn" type="button" onClick={toggleInstruction}>Close</button>
             </div>
           </div>
+        )}
         </div>
+
       </div>
   );
 };

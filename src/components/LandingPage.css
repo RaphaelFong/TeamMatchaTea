@@ -2,8 +2,10 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
     background-color: #f1f1f1; /* Light gray background */
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://wallpapers.com/images/featured-full/educational-background-uygkkwviq3gbhewf.jpg') ;
   }
   
   .landing-page-container {
@@ -35,9 +37,21 @@ body {
   }
   
   .rectangle {
-    width: 1000px;
+    width: 700px;
     height: 500px;
-    border: 2px solid black
+    border: 2px solid black;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    opacity: 0.9;
+  }
+
+  .innerRect{
+    border-radius: 20px;
+    padding: 20px;
+    background-color: whitesmoke;
+    opacity: 1;
   }
 
   .centered-header {
@@ -64,7 +78,6 @@ body {
   /*The username and password*/
   .inputField{
     padding: 10px;
-    font-family: fantasy;
     width: 200px;
     height: 40px;
   }
@@ -72,7 +85,6 @@ body {
   /*The login*/
   .login{
     padding: 10px;
-    font-family: fantasy;
     background-color: lightblue;
     width: 200px;
     height: 40px;
@@ -100,6 +112,9 @@ body {
   padding: 20px;
   border-radius: 5px;
   text-align: center;
+  width: 1000px;
+  height: 500px;
+  background-image: url('https://t3.ftcdn.net/jpg/05/00/34/58/240_F_500345899_4OqmtspFst6SRnNQvLj7h7TfKOrBwTer.jpg') ;
 }
 
 .close-btn {

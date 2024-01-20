@@ -1,10 +1,7 @@
-// PasswordGame.js
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Guess.css';
 import GradeDisplay from './GradeDisplay';
-import Options from './Options';
 import { allRules } from './Rules.js';
 
 const PasswordGame = () => {
@@ -56,14 +53,6 @@ const PasswordGame = () => {
     navigate('/');
   };
 
-  const handleRetry = () => {
-    setGameWon(false);
-    setRuleId(1);
-    setRules([allRules[0].message]);
-    setRulesCheck([allRules[0].check]);
-    setPassword('');
-  };
-
   const checkAllRules = (password) => {
     return rulesCheck.every((ruleCheck) => ruleCheck(password));
   };
@@ -71,7 +60,7 @@ const PasswordGame = () => {
   return (
     <div className="main-container">
       <div className="grade-display-container">
-        <GradeDisplay />
+      <GradeDisplay handleReturnToMainMenu={handleReturnToMainMenu} />
       </div>
       <div className="password-game-container">
         <h3>Guess the password</h3>
@@ -98,9 +87,7 @@ const PasswordGame = () => {
         </div>
         {gameWon && <p className="win-message">Congratulations! You won the game!</p>}
       </div>
-      <div className="options-container">
-        <Options handleReturnToMainMenu={handleReturnToMainMenu} handleRetry={handleRetry} />
-      </div>
+     
       
     </div>
   );

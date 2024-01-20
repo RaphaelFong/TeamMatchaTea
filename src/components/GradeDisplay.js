@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './GradeDisplay.css';
 
-const GradeDisplay = () => {
+const GradeDisplay = ({handleReturnToMainMenu}) => {
   const [timer, setTimer] = useState(300); // Initial time in seconds
 
   useEffect(() => {
@@ -40,6 +40,11 @@ const GradeDisplay = () => {
     <div className="grade-display">
       <p>Grade: {calculateGrade()}</p>
       <p>Time Remaining: {timer} seconds</p>
+      <div className="options-container">
+      <button onClick={handleReturnToMainMenu}>Return to Main Menu</button>
+      
+    </div>
+
     </div>
   );
 };

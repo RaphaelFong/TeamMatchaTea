@@ -1,4 +1,14 @@
 /* Password container styles */
+.main-container {
+  background: red;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding-top: 60px; /* Adjust this value based on the height of your fixed header */
+  position: relative;
+}
+
+
 .password-game-container {
   text-align: center;
   padding: 20px;
@@ -94,10 +104,12 @@
   font-weight: bold;
 }
 
-
 .grade-display-container {
-  width: 30%;
-  margin-left: 20px; /* Adjust the margin as needed */
-  margin-top:20px;
+  width: 20%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
