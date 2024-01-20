@@ -1,10 +1,8 @@
 /* Password container styles */
 .main-container {
-  background: red;
-  background-size: cover;
-  height: 100vh;
   margin: 0;
-  padding-top: 60px; /* Adjust this value based on the height of your fixed header */
+  padding-top: 60px;
+  /* Adjust this value based on the height of your fixed header */
   position: relative;
 }
 
@@ -17,7 +15,9 @@
   margin-top: 50px;
   border-radius: 15px;
   background-color: #fff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  /* Add a subtle box shadow */
+  z-index: 1;
 }
 
 /* Input styles */
@@ -29,32 +29,62 @@
   margin-top: 20px;
   padding: 10px;
   font-size: 16px;
-  outline: none; /* Remove the input outline on focus */
+  outline: none;
+  /* Remove the input outline on focus */
 }
 
 /* Rules container styles */
 .rules-container {
+
   margin-top: 10px;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Add a subtle box shadow */
 }
 
 /* Rule container styles */
 .rule-container {
+  display: flex;
+  align-items: center;
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 10px;
   font-size: 18px;
   transition: background-color 0.3s, transform 0.3s;
+  white-space: normal;
+  /* Prevent content from wrapping to the next line */
+  overflow: hidden;
+  /* Hide any overflow content */
+}
+
+.rule-id {
+  font-weight: bold;
+  /* Make rule id bold */
+}
+
+.rule-id-container {
+  padding-right: 10px;
+  /* Adjust the spacing between rule id and rule */
+  border-right: 2px solid #ccc;
+  /* Add a vertical line between rule id and rule */
+  margin-right: 10px;
+  /* Add some margin for spacing */
+  white-space: nowrap;
+  /* Prevent content from wrapping to the next line */
+
 }
 
 .img {
-  max-width: 100%; /* Make sure the image does not exceed the width of the container */
-  height: auto;    /* Maintain the aspect ratio */
-  display: block;  /* Remove any extra spacing caused by inline elements */
-  margin: 0 auto;  /* Center the image horizontally within the container */
+  max-width: 100%;
+  /* Make sure the image does not exceed the width of the container */
+  height: auto;
+  /* Maintain the aspect ratio */
+  display: block;
+  /* Remove any extra spacing caused by inline elements */
+  margin: 0 auto;
+  /* Center the image horizontally within the container */
 }
 
 
@@ -69,17 +99,21 @@
 */
 
 .rule-container:hover {
-  background-color: #f9f9f9; /* Change the background color on hover */
-  transform: scale(1.02); /* Slightly increase the size on hover */
+  background-color: #f9f9f9;
+  /* Change the background color on hover */
+  transform: scale(1.02);
+  /* Slightly increase the size on hover */
 }
 
 /* Active rule container styles */
 .active-rule-container {
-  background-color: #daffda; /* Set background color for active rule container */
+  background-color: #daffda;
+  /* Set background color for active rule container */
 }
 
 .rule-container.inactive-rule-container {
-  background-color: #ffcccc; /* Set background color for inactive rule container */
+  background-color: #ffcccc;
+  /* Set background color for inactive rule container */
 }
 
 /* Active rule styles */
@@ -94,8 +128,10 @@
 }
 
 .rule-container:hover {
-  background-color: #f9f9f9; /* Change the background color on hover */
-  transform: scale(1.02); /* Slightly increase the size on hover */
+  background-color: #f9f9f9;
+  /* Change the background color on hover */
+  transform: scale(1.02);
+  /* Slightly increase the size on hover */
 }
 
 /* Win message styles */
@@ -113,3 +149,86 @@
   margin-bottom: 10px;
 }
 
+.merlion-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  /* Adjust duration and easing as needed */
+  pointer-events: none;
+  /* Prevents the container from blocking interactions */
+  z-index: 0;
+  /* Set a lower z-index value */
+}
+
+.merlion-container.show {
+  opacity: 1;
+  pointer-events: auto;
+  /* Allow interactions when visible */
+}
+
+.merlion-image {
+  display: none;
+  width: 50%;
+
+
+}
+
+.merlion-container.show .merlion-image {
+  display: block;
+}
+
+.city-container {
+  position: fixed;
+  top: 200px;
+  right: -170px;
+  opacity: 0;
+  transform: rotate(270deg);
+  transition: opacity 1s ease-in-out;
+  /* Adjust duration and easing as needed */
+  pointer-events: none;
+  /* Prevents the container from blocking interactions */
+}
+
+.city-container.show {
+  opacity: 1;
+  pointer-events: auto;
+  /* Allow interactions when visible */
+}
+
+.city-image {
+  display: none;
+  width: 90%;
+}
+
+.city-container.show .city-image {
+  display: block;
+}
+
+.satay-container {
+  opacity: 0;
+  position: fixed;
+  top: 400px;
+  left: 20px;
+  transform: rotate(25deg);
+  transition: opacity 1s ease-in-out;
+  /* Adjust duration and easing as needed */
+  pointer-events: none;
+  /* Prevents the container from blocking interactions */
+}
+
+.satay-container.show {
+  opacity: 1;
+  pointer-events: auto;
+  /* Allow interactions when visible */
+}
+
+.satay-image {
+  display: none;
+  width: 30%;
+}
+
+.satay-container.show .satay-image {
+  display: block;
+}

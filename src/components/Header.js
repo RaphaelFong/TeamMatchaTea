@@ -39,7 +39,7 @@ function Header() {
 
   return (
     <div className='header'>
-      <h1 className='headerlabel1'>Save your Grades</h1>
+      <h1 className='headerlabel1'>Save your Grades!</h1>
       <button onClick={toggleMusic}>
         {isMusicPlaying ? 'Mute' : 'Unmute'}
       </button>

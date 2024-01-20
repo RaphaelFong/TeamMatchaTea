@@ -1,49 +1,48 @@
+// GradeDisplay.js
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import calculateGrade from './GradeUtils';
+import LostMessagePopup from './LostMessage';
 import './GradeDisplay.css';
 
-const GradeDisplay = ({handleReturnToMainMenu}) => {
-  const [timer, setTimer] = useState(300); // Initial time in seconds
+const GradeDisplay = ({ handleReturnToMainMenu, onTimerUpdate }) => {
+  const [timer, setTimer] = useState(300); // Reduced time for testing
+  const [showLostMessage, setShowLostMessage] = useState(false);
+  const [finalGrade, setFinalGrade] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer((prevTimer) => {
         if (prevTimer <= 0) {
-          clearInterval(interval); // Stop the timer when time is up
+          clearInterval(interval);
+          const calculatedGrade = calculateGrade();
+          setFinalGrade(calculatedGrade);
+          setShowLostMessage(true);
+          // Redirect to the landing page after 3 seconds
+          setTimeout(() => {
+            navigate('/');
+          }, 3000);
           return 0;
         }
         return prevTimer - 1;
       });
-    }, 1000); // Update every 1 second
 
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, []);
+    }, 1000);
 
-  const calculateGrade = () => {
-    const minutes = Math.floor(timer / 60);
-    // Adjust the grade based on the remaining minutes
-    if (minutes >= 4) {
-      return 'A';
-    } else if (minutes >= 3) {
-      return 'B';
-    } else if (minutes >= 2) {
-      return 'C';
-    } else if (minutes >= 1) {
-      return 'D';
-    } else if (minutes > 0) {
-      return 'E';
-    } else {
-      return 'F';
-    }
-  };
+    return () => clearInterval(interval);
+  }, [navigate]);
+
+
 
   return (
     <div className="grade-display">
-      <p>Grade: {calculateGrade()}</p>
+      <p>Grade: {calculateGrade(timer)}</p>
       <p>Time Remaining: {timer} seconds</p>
       <div className="options-container">
-      <button onClick={handleReturnToMainMenu}>Return to Main Menu</button>
-      
-    </div>
+        <button onClick={handleReturnToMainMenu}>Return to Main Menu</button>
+      </div>
+      {showLostMessage && <LostMessagePopup finalGrade={finalGrade} />}
 
     </div>
   );

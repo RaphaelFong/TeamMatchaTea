@@ -31,7 +31,7 @@ export const allRules = [
       //month
       id: 4,
       check: (pw) => {
-        const months = ['january', 'feburary', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+        const months = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
         for (const month of months) {
           if (pw.includes(month) || pw.includes(uppercase(month))) {
             return true;
@@ -89,7 +89,7 @@ export const allRules = [
       check: (pw) => {if (pw.includes(company.randomCompany.com) || pw.includes(uppercase(company.randomCompany.com))) {
         return true;
       }},
-      message: <div> <p>Your password must include this Singaporean company(without spacing)</p> <img class="img" src= {company.randomCompany.link} alt="RandomCompany"></img></div>
+      message: <div> <p>Your password must include this Singaporean company (without spacing)</p> <img class="img" src= {company.randomCompany.link} alt="RandomCompany"></img></div>
     },
     {
       //year of singapore event

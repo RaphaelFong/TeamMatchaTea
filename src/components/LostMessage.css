@@ -1,0 +1,18 @@
+/* LostMessagePopup.css */
+.lost-message-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 40px;
+  }
+  
+  .lost-message-popup .final-grade {
+    color: red; /* Set text color to red */
+    font-weight: bold; /* Set font weight to bold */
+  }

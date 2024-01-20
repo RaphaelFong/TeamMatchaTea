@@ -2,9 +2,7 @@
 //import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
-import ConfigurePage from './ConfigurePage';
 import React, {useState, useEffect} from 'react';
-import userEvent from '@testing-library/user-event';
 
 const LandingPage = () => {
   
