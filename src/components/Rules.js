@@ -72,6 +72,7 @@ export const allRules = [
       message: 'Your password must include the length of your password'
     }
     
+    
   ];
 
   

@@ -53,7 +53,12 @@ const LandingPage = () => {
         <div>
           <div className='rectangle'>
             <div className='centered-header'>
-              <h1>University Education Portal</h1>
+              
+              <div className='innerRect'>
+                <h1>University Education Portal</h1>
+              </div>
+
+              
 
               <div className='divPadding'>
                 <form>
@@ -74,15 +79,9 @@ const LandingPage = () => {
 
               <div>
               <Link to="/play" href="#" onClick={handleLinkClick} >
-                <p>Forgotten your password? Click here to reset</p>
+                <p>Forgotten password?</p>
               </Link>
               </div>
-
-              <div>
-
-                
-              </div>
-
 
               </div>
             </div>
@@ -95,8 +94,8 @@ const LandingPage = () => {
             <div className="popupInstruction">
               <p>You are a university student who is about to submit an assignment to the online school
                 portal. However, you forgot your login password. You clicked on the reset password and turns out
-                the IT team has an interesting way of restting password.
-                But you got to hurry. Every minute passes the deadline (0000 hours), you get a letter grade down.
+                the IT team has an interesting way of resetting password.
+                But you got to hurry. Every minute passes the deadline (0000 hours), you get a letter grade down!
               </p>
               <button className="close-btn" type="button" onClick={toggleInstruction}>Close</button>
             </div>
