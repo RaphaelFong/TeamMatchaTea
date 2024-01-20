@@ -40,6 +40,29 @@
   transition: background-color 0.3s, transform 0.3s;
 }
 
+.img {
+  max-width: 100%; /* Make sure the image does not exceed the width of the container */
+  height: auto;    /* Maintain the aspect ratio */
+  display: block;  /* Remove any extra spacing caused by inline elements */
+  margin: 0 auto;  /* Center the image horizontally within the container */
+}
+
+
+
+/*.rule-container:not(:first-child) {
+  display: none; 
+}
+
+.rule-container.active-rule-container {
+  display: block; 
+}
+*/
+
+.rule-container:hover {
+  background-color: #f9f9f9; /* Change the background color on hover */
+  transform: scale(1.02); /* Slightly increase the size on hover */
+}
+
 /* Active rule container styles */
 .active-rule-container {
   background-color: #daffda; /* Set background color for active rule container */
