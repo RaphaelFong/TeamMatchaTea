@@ -70,3 +70,11 @@
   color: blue;
   font-weight: bold;
 }
+
+
+.grade-display-container {
+  width: 30%;
+  margin-left: 20px; /* Adjust the margin as needed */
+  margin-top:20px;
+}
+

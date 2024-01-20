@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Guess.css';
+import GradeDisplay from './GradeDisplay';
 import Options from './Options';
 import { allRules } from './Rules.js';
 
@@ -56,6 +57,9 @@ const PasswordGame = () => {
 
   return (
     <div className="main-container">
+      <div className="grade-display-container">
+        <GradeDisplay />
+      </div>
       <div className="password-game-container">
         <h3>Guess the password</h3>
         <input
@@ -84,6 +88,7 @@ const PasswordGame = () => {
       <div className="options-container">
         <Options handleReturnToMainMenu={handleReturnToMainMenu} handleRetry={handleRetry} />
       </div>
+      
     </div>
   );
 };
