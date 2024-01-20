@@ -55,7 +55,11 @@ const LandingPage = () => {
       {(!isInstructionVisible &&
         <div className="overlay">
           <div className="popupInstruction">
-            <p>This is your popup content.</p>
+            <p>You are a university student who is about to submit an assignment to the online school
+              portal. However, you forgot your login password. You clicked on the reset password and turns out
+              the IT team has an interesting way of restting password.
+              But you got to hurry. Every minute passes the deadline (0000 hours), you get a letter grade down.
+            </p>
             <button className="close-btn" type="button" onClick={toggleInstruction}>Close</button>
           </div>
         </div>
