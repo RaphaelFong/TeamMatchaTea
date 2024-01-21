@@ -38,7 +38,7 @@ const GradeDisplay = ({ handleReturnToMainMenu, onTimerUpdate }) => {
   return (
     <div className="grade-display">
       <p>Grade: {calculateGrade(timer)}</p>
-      <p>Time Remaining: {timer} seconds</p>
+      <p>Time Remaining: {timer}s</p>
       <div className="options-container">
         <button onClick={handleReturnToMainMenu}>Return to Main Menu</button>
       </div>
