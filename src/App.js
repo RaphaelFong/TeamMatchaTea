@@ -11,8 +11,8 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="https://raphaelfong.github.io/TeamMatchaTea/" element={<LandingPage />} />
-          <Route path="https://raphaelfong.github.io/TeamMatchaTea/play" element={<Guess />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/play" element={<Guess />} />
         </Routes>
       </div>
     </Router>
